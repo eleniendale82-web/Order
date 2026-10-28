@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ef">
+  <title>Booked — Shop appointments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Booked home"><span class="brand-mark">b.</span> booked</a>
+    <nav aria-label="Main navigation"><a href="#services">Services</a><a href="#booking">Book a visit</a><a href="#my-bookings">My bookings</a></nav>
+    <a class="top-cta" href="#booking">Book now <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> YOUR NEIGHBORHOOD SHOP, ON YOUR SCHEDULE</p>
+        <h1>A little time<br>for <em>yourself.</em></h1>
+        <p class="hero-text">Good service should fit your day. Choose what you need, pick a time that works, and we’ll take care of the rest.</p>
+        <a class="button button-dark" href="#booking">Find your time <span aria-hidden="true">↓</span></a>
+        <div class="hero-note"><div class="avatar-stack"><i>M</i><i>A</i><i>J</i></div><span><strong>Local people. Lovely service.</strong><br>Appointments made easy.</span></div>
+      </div>
+      <div class="hero-art" role="img" aria-label="A welcoming neighborhood shop with a chair and fresh flowers">
+        <div class="art-window"><div class="sun"></div><div class="shelf shelf-one"></div><div class="plant"><i></i><i></i><i></i><b></b></div><div class="chair"><i></i><b></b></div><div class="pot"></div></div>
+        <div class="art-tag"><span>✳</span><div><strong>Make room<br>for a good thing.</strong><small>WE’LL BE READY FOR YOU</small></div></div>
+      </div>
+      <div class="hero-index">01 <span></span> 03</div>
+    </section>
+
+    <section class="services section-wrap" id="services">
+      <div class="section-heading"><div><p class="eyebrow">A FEW OF OUR FAVORITES</p><h2>What can we do<br>for you?</h2></div><p class="section-intro">Thoughtful service, no rush. Pick the visit that feels right and we’ll save you a seat.</p></div>
+      <div class="service-grid" id="service-grid"></div>
+    </section>
+
+    <section class="booking-section" id="booking">
+      <div class="booking-intro"><p class="eyebrow">YOUR VISIT, YOUR WAY</p><h2>Let’s get you<br><em>booked.</em></h2><p>Choose a service and a time. It only takes a minute.</p><div class="booking-hours"><span>✳</span><p><strong>Open Tuesday – Saturday</strong><br>9:00 am – 6:00 pm</p></div></div>
+      <form class="booking-card" id="booking-form">
+        <div class="form-heading"><div><span class="step">01 / 03</span><h3>Choose your service</h3></div><span class="form-icon">✳</span></div>
+        <label class="field-label" for="service-select">SERVICE</label>
+        <select id="service-select" required><option value="">Select a service</option></select>
+        <div class="form-heading date-heading"><div><span class="step">02 / 03</span><h3>Pick a date & time</h3></div></div>
+        <label class="field-label" for="date-select">DATE</label>
+        <input id="date-select" type="date" required>
+        <span class="field-label slot-label">AVAILABLE TIMES</span>
+        <div class="time-slots" id="time-slots" aria-label="Available appointment times"></div>
+        <input type="hidden" id="selected-time">
+        <p class="slot-error" id="slot-error" aria-live="polite"></p>
+        <div class="form-heading details-heading"><div><span class="step">03 / 03</span><h3>Your details</h3></div></div>
+        <div class="input-row"><label><span class="field-label">YOUR NAME</span><input id="customer-name" type="text" placeholder="e.g. Jamie Lee" autocomplete="name" required></label><label><span class="field-label">PHONE NUMBER</span><input id="customer-phone" type="tel" placeholder="e.g. 0712 345 678" autocomplete="tel" required></label></div>
+        <label class="field-label" for="customer-email">EMAIL (OPTIONAL)</label>
+        <input id="customer-email" type="email" placeholder="you@example.com" autocomplete="email">
+        <div class="booking-summary" id="booking-summary"><span>Select a service to see your total</span><strong>—</strong></div>
+        <button class="button button-dark submit-button" type="submit">Confirm booking <span aria-hidden="true">↗</span></button>
+        <p class="privacy-note">Your details are only used to manage this appointment.</p>
+      </form>
+    </section>
+
+    <section class="my-bookings section-wrap" id="my-bookings">
+      <div class="section-heading"><div><p class="eyebrow">A LITTLE LOOK AHEAD</p><h2>Your upcoming<br>visits.</h2></div><p class="section-intro">Your appointments are saved on this device. Need to make a change? Give us a call.</p></div>
+      <div class="booking-list" id="booking-list"></div>
+    </section>
+  </main>
+  <footer><a class="brand" href="#home"><span class="brand-mark">b.</span> booked</a><span>Made with care, for your neighborhood.</span><a href="#booking">Come on in ↑</a></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
